@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Vite App</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'assets/index-jJtg2Xst.css' %}">
+        <script>
+            // Внедряем переменную окружения из Django
+            window.REACT_APP_API_URL = "{{ api_url }}";
+        </script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="{% static 'assets/index-DzOj8Tzk.js' %}"></script>
+    </body>
+</html>
