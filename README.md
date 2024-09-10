@@ -82,6 +82,8 @@ DB_USER=postgres
 DB_PASSWORD=090981
 DB_HOST=127.0.0.1
 DB_PORT=5432
+DEBUG=False
+REACT_APP_API_URL=http://95.163.229.219
 ```
 ### Запускаем:
 ```
