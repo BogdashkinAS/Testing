@@ -1,10 +1,10 @@
 ### Запускаем в консоли команду:
 ```
-ssh root@194.58.114.153
+ssh root@95.163.229.219
 ```
 Пароль:
 ```
-dFJLOFvuLm1b3jUh
+OF0uKBfMjjGUKiUp
 ```
 ### Заводим нового пользователя:
 ```
@@ -109,7 +109,7 @@ python manage.py runserver 0.0.0.0:8000
 ```
 ### Запускаем сервер на адресе: 
 ```
-http://194.58.114.153:8000/
+http://95.163.229.219:8000/
 ```
 ### Открываем:
 ```
@@ -163,7 +163,7 @@ sudo nano /etc/nginx/sites-available/diplom
 ```
 server {
     listen 80;
-    server_name 194.58.114.153;
+    server_name 95.163.229.219;
 
     location /static/ {
         root /home/alex/Diplom/backend/APIProject/APIProject;
@@ -203,7 +203,7 @@ sudo ufw allow 'Nginx Full'
 ```
 ### Запускаем сервер на хосте:
 ```
-http://194.58.114.153/
+http://95.163.229.219/
 ```
 ### Структура проекта: 
 
