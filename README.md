@@ -149,8 +149,8 @@ gunicorn APIProject.wsgi -b 0.0.0.0:8000
 
 sudo nano /etc/systemd/system/gunicorn.service
 
-Копируем в файл настройки:
-
+### Копируем в файл настройки:
+```
 [Unit]
 Description=gunicorn service
 After=network.target
@@ -164,7 +164,7 @@ ExecStart=/home/alex/Diplom/backend/APIProject/APIProject/env/bin/gunicorn --acc
 
 [Install]
 WantedBy=multi-user.target
-
+```
 
 Запускаем gunicorn:
 
