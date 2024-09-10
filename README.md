@@ -1,6 +1,16 @@
+### Генерируем ssh-ключ:
+```
+ssh-keygen
+```
+### Копируем ssh-ключ:
+```
+cat ~/.ssh/id_rsa.pub
+```
+### Подключаем его на REG.RU:
+
 ### Запускаем в консоли команду:
 ```
-ssh root@95.163.229.219
+ssh root@194.58.126.125
 ```
 Пароль:
 ```
@@ -83,7 +93,7 @@ DB_PASSWORD=090981
 DB_HOST=127.0.0.1
 DB_PORT=5432
 DEBUG=False
-REACT_APP_API_URL=http://95.163.229.219
+REACT_APP_API_URL=http://194.58.126.125
 ```
 ### Запускаем:
 ```
@@ -111,7 +121,7 @@ python manage.py runserver 0.0.0.0:8000
 ```
 ### Запускаем сервер на адресе: 
 ```
-http://95.163.229.219:8000/
+http://194.58.126.125:8000/
 ```
 ### Открываем:
 ```
@@ -165,7 +175,7 @@ sudo nano /etc/nginx/sites-available/diplom
 ```
 server {
     listen 80;
-    server_name 95.163.229.219;
+    server_name 194.58.126.125;
 
     location /static/ {
         root /home/alex/Diplom/backend/APIProject/APIProject;
@@ -205,7 +215,7 @@ sudo ufw allow 'Nginx Full'
 ```
 ### Запускаем сервер на хосте:
 ```
-http://95.163.229.219/
+http://194.58.126.125/
 ```
 ### Структура проекта: 
 
