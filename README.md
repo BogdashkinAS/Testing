@@ -1,126 +1,128 @@
 ### Запускаем в консоли команду:
-
+```
 ssh root@194.58.114.153 пароль: dFJLOFvuLm1b3jUh
-
+```
 ### Заводим нового пользователя:
-
+```
 adduser alex пароль: 090981
-
+```
 ### Присваиваем статус администратора:
-
+```
 usermod alex -aG sudo
-
+```
 ### Переходим на учетку alex
-
+```
 su alex
-
+```
 ### Переходим в корень проекта:
-
+```
 cd ~
-
+```
 ### Обновляем пакеты:
-
+```
 sudo apt update
-
+```
 ### Делаем необходимые установки:
-
+```
 sudo apt install python3-venv python3-pip postgresql nginx
-
+```
 ### Запускаем nginx:
-
+```
 sudo systemctl start nginx
-
+```
 ### Проверяем статус nginx:
-
+```
 sudo systemctl status nginx
-
+```
 ### Устанавливаем проект:
-
+```
 git clone https://github.com/BogdashkinAS/Diplom.git
-
+```
 ### Перейдем в папку репозитория где лежит manage.py:
 ```
 cd Testing/backend/APIProject/APIProject
 ```
 ### Запускаем работу с БД:
-
+```
 sudo su postgres
-
+```
 ### Потом:
-
+```
 psql
-
+```
 ### Заводим пользователя postgres:
-
+```
 ALTER USER postgres WITH PASSWORD '090981';
-
+```
 ### Создаем БД:
-
+```
 CREATE DATABASE test_user;
-
+```
 ### Далее:
-
+```
 \q
-
+```
 ### Далее:
-
+```
 exit
-
+```
 ### Запускаем:
-
+```
 nano .env
-
+```
 ### Проверяем наличие указанных настроек:
-
+```
 DB_ENGINE=django.db.backends.postgresql
 DB_NAME=test_user
 DB_USER=postgres
 DB_PASSWORD=090981
 DB_HOST=127.0.0.1
 DB_PORT=5432
-
+```
 ### Запускаем:
-
+```
 python3 -m venv env
-
+```
 ### Включаем виртуальное окружение:
-
+```
 source env/bin/activate
-
+```
 ### Устанавливаем пакеты:
-
+```
 pip install -r requirements.txt
-
+```
 ### Проводим миграции:
-
+```
 python manage.py migrate
-
+```
 ### Заводим админа:
-
+```
 python manage.py createsuperuser admin пароль: admin
-
+```
 ### Проверяем работу сервера:
-
+```
 python manage.py runserver 0.0.0.0:8000
-
-### Запускаем сервер на адресе: http://194.58.114.153:8000/
-
+```
+### Запускаем сервер на адресе: 
+```
+http://194.58.114.153:8000/
+```
 ### Открываем:
-
+```
 nano settings.py
-
+```
 ### Устанавливаем значение:
-
+```
 DEBUG=False
-
+```
 ### Проверяем работу gunicorn:
-
+```
 gunicorn APIProject.wsgi -b 0.0.0.0:8000 
-
+```
 ### Устанавливаем настройки gunicorn:
-
+```
 sudo nano /etc/systemd/system/gunicorn.service
-
+```
 ### Копируем в файл настройки:
 ```
 [Unit]
@@ -138,21 +140,21 @@ ExecStart=/home/alex/Diplom/backend/APIProject/APIProject/env/bin/gunicorn --acc
 WantedBy=multi-user.target
 ```
 ### Запускаем gunicorn:
-
+```
 sudo systemctl start gunicorn
-
+```
 ### Активируем gunicorn:
-
+```
 sudo systemctl enable gunicorn
-
+```
 ### Проверяем статус gunicorn:
-
+```
 sudo systemctl status gunicorn
-
+```
 ### Запускаем настройки nginx:
-
+```
 sudo nano /etc/nginx/sites-available/diplom
-
+```
 ### Копируем в файл настройки:
 ```
 server {
@@ -170,21 +172,21 @@ server {
 }
 ```
 ### Запускаем команду:
-
+```
 sudo ln -s /etc/nginx/sites-available/diplom /etc/nginx/sites-enabled
-
+```
 ### Останавливаем nginx:
-
+```
 sudo systemctl stop nginx
-
+```
 ### Запускаем nginx:
-
+```
 sudo systemctl start nginx
-
+```
 ### Статус nginx:
-
+```
 sudo systemctl status nginx
-
+```
 ### Изменяем настройки конфигурации:
 ```
 sudo nano /etc/nginx/nginx.conf
@@ -192,13 +194,13 @@ sudo nano /etc/nginx/nginx.conf
 user www-data; заменить на user alex;
 
 ### Прописываем команду для файервола:
-
+```
 sudo ufw allow 'Nginx Full'
-
+```
 ### Запускаем сервер на хосте:
-
+```
 http://194.58.114.153/
-
+```
 ### Структура проекта: 
 
 ## 1. Фронтенд:
